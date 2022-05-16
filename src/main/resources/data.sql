@@ -1,0 +1,15 @@
+CREATE TABLE `products` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_code` INT UNSIGNED NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `price` DECIMAL(15,2) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE  `tags` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_id` INT UNSIGNED NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `tag_product_id_fk` FOREIGN KEY (`product_id`) REFERENCES products(`id`) ON DELETE CASCADE
+);
